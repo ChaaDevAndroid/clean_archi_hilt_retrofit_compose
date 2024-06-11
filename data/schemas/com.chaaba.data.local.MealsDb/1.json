@@ -1,0 +1,52 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8115c1fdc833d21c66ca9c543d5f5c9d",
+    "entities": [
+      {
+        "tableName": "meals_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idCategory` TEXT NOT NULL, `strCategory` TEXT NOT NULL, `strCategoryThumb` TEXT NOT NULL, `strCategoryDescription` TEXT NOT NULL, PRIMARY KEY(`idCategory`))",
+        "fields": [
+          {
+            "fieldPath": "idCategory",
+            "columnName": "idCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "strCategory",
+            "columnName": "strCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "strCategoryThumb",
+            "columnName": "strCategoryThumb",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "strCategoryDescription",
+            "columnName": "strCategoryDescription",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "idCategory"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8115c1fdc833d21c66ca9c543d5f5c9d')"
+    ]
+  }
+}
