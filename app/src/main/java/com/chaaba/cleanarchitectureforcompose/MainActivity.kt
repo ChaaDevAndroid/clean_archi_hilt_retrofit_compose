@@ -60,6 +60,10 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun MealItem(category: Category, modifier: Modifier = Modifier) {
+    var isExpanded by remember { mutableStateOf(false) }
+    val surfaceColor by animateColorAsState(
+        if (isExpanded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
+    )
 
     Row(
         modifier = Modifier
@@ -74,14 +78,6 @@ fun MealItem(category: Category, modifier: Modifier = Modifier) {
                 .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
         )
         Spacer(modifier = Modifier.width(8.dp))
-
-        var isExpanded by remember { mutableStateOf(false) }
-
-        val surfaceColor by animateColorAsState(
-            if (isExpanded) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface
-        )
-
-
         Column {
             Text(
                 text = category.strCategory,

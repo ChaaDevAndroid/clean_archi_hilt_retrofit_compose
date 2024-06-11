@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.chaaba.domain.pojo.CategoryResponse
-import com.chaaba.domain.usecase.GetMeals
+import com.chaaba.domain.usecase.GetMealUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +15,7 @@ import javax.inject.Inject
 private const val TAG = "MealViewModel"
 
 @HiltViewModel
-class MealViewModel @Inject constructor(private val _useCase: GetMeals) : ViewModel() {
+class MealViewModel @Inject constructor(private val _useCase: GetMealUseCase) : ViewModel() {
 
     private val _categories: MutableStateFlow<CategoryResponse?> = MutableStateFlow(null)
     val categories: StateFlow<CategoryResponse?> = _categories

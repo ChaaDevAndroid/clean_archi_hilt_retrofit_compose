@@ -91,4 +91,13 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
     implementation ("com.github.bumptech.glide:compose:1.0.0-beta01")
 
+    //room
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+    // optional - RxJava3 support for Room
+    implementation("androidx.room:room-rxjava3:$room_version")
+
 }

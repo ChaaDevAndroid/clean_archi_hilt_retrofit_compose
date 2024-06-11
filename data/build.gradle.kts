@@ -1,7 +1,13 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
+    id("androidx.room")
 }
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+
 
 android {
     namespace = "com.chaaba.data"
@@ -9,10 +15,13 @@ android {
 
     defaultConfig {
         minSdk = 24
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+
     }
+
+
 
     buildTypes {
         release {
@@ -22,7 +31,10 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -30,7 +42,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
+
+
 }
+
 
 dependencies {
 
@@ -41,7 +58,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    
+
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
@@ -50,5 +67,16 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0-RC")
 
+    //room
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
 
+
+}
+kapt {
+    correctErrorTypes = true
 }

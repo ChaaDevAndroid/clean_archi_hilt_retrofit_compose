@@ -1,5 +1,6 @@
 package com.chaaba.cleanarchitectureforcompose.di
 
+import com.chaaba.data.local.IMealDao
 import com.chaaba.data.remote.IApiServiceMeals
 import com.chaaba.data.repo.MealRepoImpl
 import dagger.Module
@@ -14,6 +15,7 @@ object MealRepoModule {
 
     @Provides
     @Singleton
-    fun provideRepo(apiServiceMeals: IApiServiceMeals) = MealRepoImpl(apiServiceMeals)
+    fun provideRepo(apiServiceMeals: IApiServiceMeals, mealsDao: IMealDao) =
+        MealRepoImpl(apiServiceMeals, mealsDao)
 
 }
