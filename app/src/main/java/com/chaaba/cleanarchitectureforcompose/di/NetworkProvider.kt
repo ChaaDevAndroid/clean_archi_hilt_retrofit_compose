@@ -31,7 +31,8 @@ object NetworkProvider {
 
     @Provides
     @Singleton
-    fun provideApiServiceMeals(retrofit: Retrofit) = retrofit.create(IApiServiceMeals::class.java)
+    fun provideApiServiceMeals(retrofit: Retrofit): IApiServiceMeals =
+        retrofit.create(IApiServiceMeals::class.java)
 
 
 }

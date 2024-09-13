@@ -14,6 +14,6 @@ object UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideGetMeals(repoImpl: MealRepoImpl) = GetMealUseCase(repoImpl)
+    fun provideGetMeals(repoImpl: MealRepoImpl): GetMealUseCase = GetMealUseCase(repoImpl)
 
 }

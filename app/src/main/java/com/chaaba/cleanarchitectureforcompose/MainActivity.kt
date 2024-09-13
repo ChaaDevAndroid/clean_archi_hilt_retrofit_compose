@@ -120,12 +120,3 @@ fun Conversation(viewModel: MealViewModel = viewModel()) {
         }
     }
 }
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CleanArchitectureForComposeTheme {
-
-    }
-}
